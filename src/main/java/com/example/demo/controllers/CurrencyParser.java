@@ -17,13 +17,13 @@ public class CurrencyParser {
     static final String SITE_URL = "https://openexchangerates.org/api/";
     public static String start() throws Exception{
         LocalDate date = LocalDate.now();
-        date = date.minusDays(3);
+        date = date.minusDays(1);
         System.out.println(date);
         double today = getRate(SITE_URL+"latest.json?app_id="+APP_TOKEN);
         double yesterday =  getRate(SITE_URL+"historical/"+date+".json?app_id="+APP_TOKEN);
         String gif = getGIF(today>yesterday?"rich":"broke");
-        /*if(today>yesterday) gif = getGIF("rich");
-        else gif = getGIF("broke");*/
+        //if(today>yesterday) gif = getGIF("rich");
+        //else gif = getGIF("broke");
         System.out.println(gif);
         return gif;
     }
